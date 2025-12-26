@@ -1,3 +1,4 @@
+import time
 import random
 
 # ------------------------------
@@ -8,6 +9,10 @@ MAX = 9
 OPERATORS = ["+", "-", "*", "/"]
 NUMBER_OF_QN = 10
 
+# ------------------------------
+# Start total quiz timer
+# ------------------------------
+quizStartTime = time.time()
 
 # Ask a fixed number of arithmetic questions
 for _ in range(NUMBER_OF_QN):
@@ -43,7 +48,6 @@ for _ in range(NUMBER_OF_QN):
     while True:
         try:
             if operator == "/":
-                # Accept decimal answers for division
                 userAnswer = round(
                     float(input(
                         f"{left} / {right} = (round to 3 decimal places) "
@@ -51,17 +55,22 @@ for _ in range(NUMBER_OF_QN):
                     3
                 )
             else:
-                # Enforce integer answers for other operators
                 userAnswer = int(input(f"{left} {operator} {right} = "))
 
         except ValueError:
-            # Handle non-numeric input gracefully
             print("Please enter a valid number.")
             continue
 
-        # Check the user's answer
         if userAnswer == correctAnswer:
             print("Correct!\n")
             break
         else:
             print("Incorrect. Try again.")
+
+# ------------------------------
+# End total quiz timer
+# ------------------------------
+quizEndTime = time.time()
+totalTimeUsed = quizEndTime - quizStartTime
+
+print(f"Total quiz time: {totalTimeUsed:.2f} seconds")
