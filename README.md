@@ -6,5 +6,6 @@ A collection of simple Python projects built while learning Python.
 - Madlib Game
 - Math Quiz
 - Password Saver
+- Slot Machine – Reel-based slot machine simulation
 
 Each project is contained in its own folder.
